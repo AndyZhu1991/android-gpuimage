@@ -30,3 +30,6 @@ proguard.cfg
 
 #OSX
 .DS_Store
+
+# CMake
+.externalNativeBuild

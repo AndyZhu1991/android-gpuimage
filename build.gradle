@@ -3,9 +3,10 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.0.0-beta6'
+        classpath 'com.android.tools.build:gradle:3.1.4'
     }
 }
 
@@ -13,6 +14,7 @@ allprojects {
     repositories {
         jcenter()
         maven { url("https://oss.sonatype.org/content/repositories/snapshots/") }
+        google()
     }
     tasks.withType(JavaCompile) {
         options.encoding = 'UTF-8'

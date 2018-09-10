@@ -10,13 +10,6 @@ android {
 
         versionCode = VERSION_CODE
         versionName = VERSION_NAME
-
-        ndk {
-            moduleName "gpuimage-library"
-            stl "gnustl_shared"
-            abiFilters "all"
-            ldLibs "log"
-        }
     }
 
     sourceSets {
@@ -30,8 +23,6 @@ android {
             assets.srcDirs = ['assets']
             jni.srcDirs = ['jni']
         }
-
-        instrumentTest.setRoot('tests')
     }
 
     lintOptions {
@@ -53,6 +44,17 @@ android {
             description "Bundles Javadoc into zip for $variant.name."
             classifier = "javadoc"
             from tasks["javadoc${variant.name.capitalize()}"]
+        }
+    }
+
+    // Encapsulates your external native build configurations.
+    externalNativeBuild {
+
+        // Encapsulates your CMake build configurations.
+        cmake {
+
+            // Provides a relative path to your CMake build script.
+            path "CMakeLists.txt"
         }
     }
 }
